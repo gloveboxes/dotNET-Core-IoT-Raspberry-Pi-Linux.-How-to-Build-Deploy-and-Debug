@@ -37,8 +37,6 @@ namespace dotnet.core.iot
             var telemetry = new Telemetry() { Temperature = Math.Round(temperature, 2), MessageId = _msgId++ };
             string json = JsonConvert.SerializeObject(telemetry);
 
-            Console.WriteLine($"Sending {json}");
-
             Message eventMessage = new Message(Encoding.UTF8.GetBytes(json));
             eventMessage.Properties.Add("temperatureAlert", (temperature > TemperatureThreshold) ? "true" : "false");
             await _deviceClient.SendEventAsync(eventMessage).ConfigureAwait(false);

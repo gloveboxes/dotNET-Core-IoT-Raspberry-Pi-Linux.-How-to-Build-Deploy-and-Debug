@@ -34,6 +34,10 @@ The [System.Device.Gpio](https://www.nuget.org/packages/System.Device.Gpio)  pac
 
 The [.NET Core IoT Repository](https://github.com/dotnet/iot/tree/master/src) contains [IoT.Device.Bindings](https://www.nuget.org/packages/Iot.Device.Bindings), a growing set of community-maintained device bindings for IoT components that you can use with your .NET Core applications. If you can't find what you need then porting your own C/C++ driver libraries to .NET Core and C# is pretty straight forward too.
 
+The drivers in the repository include sample code along with wiring diagrams. For example the [BMx280 - Digital Pressure Sensors BMP280/BME280](https://github.com/dotnet/iot/tree/master/src/devices/Bmx280).
+
+![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/rpi-bmp280_i2c.png)
+
 ## Software Set Up for Linux, macOS, and Windows 10 Desktops
 
 You can create .NET Core IoT projects on Linux, macOS and Windows desktops.  You need to install the following software.
@@ -46,6 +50,16 @@ You can create .NET Core IoT projects on Linux, macOS and Windows desktops.  You
 1. [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=devto-blog-dglover). I suggest you install the Ubuntu 18.04 distribution.
 2. [PuTTY SSH and telnet client](https://www.putty.org/)
 3. The [WSL workspaceFolder](https://marketplace.visualstudio.com/itemdetails?itemName=lfurzewaddock.vscode-wsl-workspacefolder) Visual Studio Extension
+
+## Setting up your Raspberry Pi
+
+.Net Core requires an AMR32v7 processor and above, so anything Raspberry Pi 2 or better and you are good to go. Note, Raspberry Pi Zero is an ARM32v6 processor, and not supported.
+
+If you've not set up a Raspberry Pi before then this is a great guide. "[HEADLESS RASPBERRY PI 3 B+ SSH WIFI SETUP (MAC + WINDOWS)](https://desertbot.io/blog/headless-raspberry-pi-3-bplus-ssh-wifi-setup)". The Instructions outlined for macOS will work on Linux.
+
+**This walk-through assumes the default Raspberry Pi network name, 'raspberrypi.local', and the default password, 'raspberry'.**
+
+![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/raspberrypi-3a-plus.jpg)
 
 ## Configure Connection to your Raspberry Pi
 
@@ -81,14 +95,18 @@ plink -ssh -pw raspberry pi@raspberrypi.local "curl -sSL https://aka.ms/getvsdbg
 Open a command prompt or terminal window, and paste in the following command(s). It will create the project directory, create the .NET Core Console app, add the Iot.Device.Bindings package, and then launch Visual Studio Code.
 
 ```bash
-mkdir dotnet.core.iot.csharp && cd dotnet.core.iot.csharp && dotnet new console --langVersion latest && dotnet add package Iot.Device.Bindings --version 0.1.0-prerelease* && code .
+mkdir dotnet.core.iot.csharp && cd dotnet.core.iot.csharp
+
+dotnet new console --langVersion latest && dotnet add package Iot.Device.Bindings --version 0.1.0-prerelease*
+
+code .
 ```
 
 1. Add the Visual Studio Code Build and Debug assets
 
 ![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/create-new-project.png)
 
-5. Replace the code in program.cs file with the following code. This code will read the Raspberry Pi CPU Temperature and display it in the system console window.
+2. Replace the code in program.cs file with the following code. This code will read the Raspberry Pi CPU Temperature and display it in the system console window.
 
 ```c#
 using System;
@@ -129,11 +147,9 @@ For this walk-through, we are going to use [rsync](https://en.wikipedia.org/wiki
 
 We need to update the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/debugging) files with the following code.
 
-Notes:
+![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/build-configuration.png)
 
-1. These launch and build tasks assume the default network name of your Raspberry Pi is **raspberrypi.local**
-2. The Windows section uses plink for the pipeProgram. It specifies the default Raspberry Pi password which is '**raspberry**'.
-2. These definitions support building the application from Linux, macOS and Windows desktops.
+**This walk-through assumes the default Raspberry Pi network name, 'raspberrypi.local', and the default password, 'raspberry'.**
 
 ### launch.json
 
