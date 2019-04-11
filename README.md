@@ -1,6 +1,6 @@
 # .NET Core IoT, Raspberry Pi Linux, and Azure IoT Hub. How to Build, Deploy and Debug
 
-![.net core loves single board computers](./docs/banner.png)
+![.net core loves single board computers](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/banner.png)
 
 ## Source Code
 
@@ -63,7 +63,7 @@ ssh pi@raspberry.local "curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -r
 ### From Windows 10
 
 Press the Windows Key
-![windows key](./docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
+![windows key](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
 
 ```bash
 ping raspberrypi.local
@@ -86,7 +86,7 @@ mkdir dotnet.core.iot.csharp && cd dotnet.core.iot.csharp && dotnet new console 
 
 1. Add the Visual Studio Code Build and Debug assets
 
-![](./docs/create-new-project.png)
+![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/create-new-project.png)
 
 5. Replace the code in Program.cs file with the following code. This code will read the Raspberry Pi CPU Temperature and display it in the system console window.
 
@@ -117,7 +117,7 @@ namespace dotnet.core.iot
 
 Your Visual Studio Code **Program.cs** file should look like the following screenshot.
 
-![sample program](./docs/cpu-temperature-program.png)
+![sample program](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/cpu-temperature-program.png)
 
 ## Deploying the project to your Raspberry Pi
 
@@ -258,9 +258,9 @@ Set a breakpoint in your code, for example at the 15, and from Visual Studio Cod
 
 Your code will build, it will be copied to your Raspberry Pi and the debugger will be attached and you can now start stepping through your code.
 
-![Publish, Launch and Attach Debugger](./docs/build-deploy-debug.png)
+![Publish, Launch and Attach Debugger](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/build-deploy-debug.png)
 
-![](./docs/visual-studio-code-debugging.png)
+![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/visual-studio-code-debugging.png)
 
 ## Connect your Raspberry Pi to Azure IoT Hub
 
