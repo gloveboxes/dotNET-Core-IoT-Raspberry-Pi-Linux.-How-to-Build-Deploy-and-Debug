@@ -208,12 +208,8 @@ The launch.json file calls a **publish** prelaunch task which builds and copies 
 
 ### tasks.json
 
-The tasks.json file defines how to compile the project for linux-arm and how to copy the program to the Raspberry Pi with rsync.
+The tasks.json file defines how to compile the project for linux-arm and how to copy the program to the Raspberry Pi with rsync. On **Windows**, you must explicitly specify the **IP Address** of the Raspberry Pi as rsync is called via Bash and the Windows Subsystem for Linux does not resolve .local DNS names.
 
-Notes.
-
-1. This tasks.json file assumes the default network name of your Raspberry Pi is **raspberrypi.local**.
-2. On Windows, you must explicitly specify the IP Address of the Raspberry Pi as rsync is called via Bash and the Windows Subsystem for Linux does not resolve .local DNS names.
 
 ```json
 {
