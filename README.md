@@ -11,7 +11,7 @@ The source and the samples for this walk-through can be found [here](https://git
 The .NET Core IoT Library connects your applications to hardware. In this walk-through you will learn how to:
 
 1. Develop a C# .NET Core IoT application from a Linux, macOS or Windows 10 desktop,
-2. Deploy the app to a Raspberry Pi running Linux (or another board such as the BeagleBoard),
+2. Deploy the app to a Raspberry Pi running Linux (or another Linux board such as the BeagleBone Black),
 3. Debug and step through your code,
 4. Stream telemetry to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub?WT.mc_id=devto-blog-dglover),
 5. And if you are a glutton for punishment then check out the [F# .Net Core IoT] in the [samples](https://github.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug) folder.
