@@ -8,8 +8,7 @@ The source and the samples for this walk-through can be found [here](https://git
 
 ## Introduction
 
-The .NET Core IoT Library connect your applications to hardware. In this walk-through
- you will learn how to:
+The .NET Core IoT Library connects your applications to hardware. In this walk-through you will learn how to:
 
 1. Develop a C# .NET Core IoT application from a Linux, macOS or Windows 10 desktop,
 2. Deploy the app to a Raspberry Pi running Linux (or another board such as the BeagleBone),
