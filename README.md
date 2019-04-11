@@ -4,7 +4,7 @@
 
 ## Source Code
 
-The source and the samples for this walk-through can be found at []().
+The source and the samples for this walk-through can be found [here](https://github.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug).
 
 ## Introduction
 
@@ -29,7 +29,7 @@ The Microsoft .NET Core team are turning their attention to supporting [IoT](htt
 
 ### System.Device.Gpio
 
-The [System.Device.Gpio](https://www.nuget.org/packages/System.Device.Gpio) preview package supports general-purpose I/O ([GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output)) pins, PWM, I2C, SPI and related interfaces for interacting with low level hardware pins to control hardware sensors, displays and input devices on single-board-computers; [Raspberry Pi](https://www.raspberrypi.org/), [BeagleBoard](https://beagleboard.org/), [HummingBoard](https://www.solid-run.com/nxp-family/hummingboard/), [ODROID](https://www.hardkernel.com/), and other single-board-computers that are supported by **Linux** and **Windows 10 IoT Core**.
+The [System.Device.Gpio](https://www.nuget.org/packages/System.Device.Gpio) preview package supports general-purpose I/O ([GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output)) pins, PWM, I2C, SPI and related interfaces for interacting with low-level hardware pins to control hardware sensors, displays and input devices on single-board-computers; [Raspberry Pi](https://www.raspberrypi.org/), [BeagleBoard](https://beagleboard.org/), [HummingBoard](https://www.solid-run.com/nxp-family/hummingboard/), [ODROID](https://www.hardkernel.com/), and other single-board-computers that are supported by **Linux** and **Windows 10 IoT Core**.
 
 ### Iot.Device.Bindings
 
@@ -50,7 +50,7 @@ You can create .NET Core IoT projects on Linux, macOS and Windows desktops.  You
 
 ## Configure Connection to Raspberry Pi
 
-The following create a new SSH key, copies the public key to the Raspberry Pi, and then installs the Visual Studio Debugger on the Raspberry Pi. Take the default options.
+The following creates a new SSH key, copies the public key to the Raspberry Pi, and then installs the Visual Studio Debugger on the Raspberry Pi. Take the default options.
 
 ### From Linux and macOS
 
@@ -124,7 +124,7 @@ Your Visual Studio Code **Program.cs** file should look like the following scree
 
 To deploy a project to your Raspberry Pi you need to tell Visual Studio Code to compile for **linux-arm**, how to copy the compiled code to the Raspberry Pi, and finally how to attach the debugger.
 
-For this walk-through we are going to use [rsync](https://en.wikipedia.org/wiki/Rsync) to copy program files to the Raspberry Pi. Rsync is a very efficient file transfer protocol, comes standard with Linux, macOS, and Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=devto-blog-dglover) installed.
+For this walk-through, we are going to use [rsync](https://en.wikipedia.org/wiki/Rsync) to copy program files to the Raspberry Pi. Rsync is a very efficient file transfer protocol, comes standard with Linux, macOS, and Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=devto-blog-dglover) installed.
 
 ## Updating the Visual Studio Code Build Files
 
@@ -198,7 +198,7 @@ The task.json file defines how to compile the project for linux-arm and how to c
 Notes.
 
 1. This tasks.json file assumes the default network name of your Raspberry Pi is **raspberrypi.local**.
-2. On Windows you must explicitly specify the IP Address of the Raspberry Pi as rsync is called via Bash and the Windows Subsystem for Linux does not resolve .local DNS names.
+2. On Windows, you must explicitly specify the IP Address of the Raspberry Pi as rsync is called via Bash and the Windows Subsystem for Linux does not resolve .local DNS names.
 
 ```json
 {
@@ -255,7 +255,7 @@ Notes.
 
 Review this [Visual Studio Debugger Guide](https://code.visualstudio.com/docs/editor/debugging) if you've not used the debugger before.
 
-Set a break point in your code, for example at the 15, and from Visual Studio Code click the Debug icon on the Activity bar, ensure "**Publish, Launch and Attach Debugger**" is selected in the dropdown, and click the green run icon.
+Set a breakpoint in your code, for example at the 15, and from Visual Studio Code click the Debug icon on the Activity bar, ensure "**Publish, Launch and Attach Debugger**" is selected in the dropdown, and click the green run icon.
 
 Your code will build, it will be copied to your Raspberry Pi and the debugger will be attached and you can now start stepping through your code.
 
