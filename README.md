@@ -1,4 +1,4 @@
-# .NET Core IoT, Raspberry Pi Linux, and Azure IoT Hub. How to Build, Deploy and Debug
+# .NET Core IoT, Raspberry Pi Linux, and Azure IoT Hub. Learn how to Build, Deploy and Debug.
 
 ![.net core loves single board computers](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/banner.png)
 
@@ -11,28 +11,28 @@ The source and the samples for this walk-through can be found [here](https://git
 The .NET Core IoT Library connects your applications to hardware. In this walk-through you will learn how to:
 
 1. Develop a C# .NET Core IoT application from a Linux, macOS or Windows 10 desktop,
-2. Deploy the app to a Raspberry Pi running Linux (or another board such as the BeagleBone),
+2. Deploy the app to a Raspberry Pi running Linux (or another board such as the BeagleBoard),
 3. Debug and step through your code,
 4. Stream telemetry to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub?WT.mc_id=devto-blog-dglover),
-5. Ok, you are a glutton for punishment, check out the [F# .Net Core IoT] in the samples directory).
+5. And if you are a glutton for punishment then check out the [F# .Net Core IoT] in the [samples](https://github.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug) folder.
 
 ## Why .NET Core
 
-It used by millions of developers, it's mature, robust, fast, supports multiple programming languages (C#, F#, and VB.NET), runs on multiple platforms (Linux, macOS, and Windows), and is supported across multiple processor architectures. It is used to build device, cloud, and IoT applications.
+It used by millions of developers, it is mature, fast, supports multiple programming languages (C#, F#, and VB.NET), runs on multiple platforms (Linux, macOS, and Windows), and is supported across multiple processor architectures. It is used to build device, cloud, and IoT applications.
 
 [.NET Core](https://docs.microsoft.com/en-au/dotnet/core?WT.mc_id=devto-blog-dglover) is an [open-source](https://github.com/dotnet/coreclr/blob/master/LICENSE.TXT), general-purpose development platform maintained by Microsoft and the .NET community on [GitHub](https://github.com/dotnet/core).
 
 ## The .NET Core IoT Libraries Open Source Project
 
-The Microsoft .NET Core team are turning their attention to supporting [IoT](https://en.wikipedia.org/wiki/Internet_of_things) scenarios with [.NET Core IoT Libraries](https://github.com/dotnet/iot) across Linux, and Windows IoT Core, on ARM and Intel processor architectures. See the [.NET Core IoT Library Roadmap](https://github.com/dotnet/iot/blob/master/Documentation/roadmap.md) for more information.
+The Microsoft .NET Core team along with the developer community are building support for [IoT](https://en.wikipedia.org/wiki/Internet_of_things) scenarios. The [.NET Core IoT Library](https://github.com/dotnet/iot) is supported on Linux, and Windows IoT Core, across ARM and Intel processor architectures. See the [.NET Core IoT Library Roadmap](https://github.com/dotnet/iot/blob/master/Documentation/roadmap.md) for more information.
 
 ### System.Device.Gpio
 
-The [System.Device.Gpio](https://www.nuget.org/packages/System.Device.Gpio) preview package supports general-purpose I/O ([GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output)) pins, PWM, I2C, SPI and related interfaces for interacting with low-level hardware pins to control hardware sensors, displays and input devices on single-board-computers; [Raspberry Pi](https://www.raspberrypi.org/), [BeagleBoard](https://beagleboard.org/), [HummingBoard](https://www.solid-run.com/nxp-family/hummingboard/), [ODROID](https://www.hardkernel.com/), and other single-board-computers that are supported by **Linux** and **Windows 10 IoT Core**.
+The [System.Device.Gpio](https://www.nuget.org/packages/System.Device.Gpio)  package supports general-purpose I/O ([GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output)) pins, PWM, I2C, SPI and related interfaces for interacting with low-level hardware pins to control hardware sensors, displays and input devices on single-board-computers; [Raspberry Pi](https://www.raspberrypi.org/), [BeagleBoard](https://beagleboard.org/), [HummingBoard](https://www.solid-run.com/nxp-family/hummingboard/), [ODROID](https://www.hardkernel.com/), and other single-board-computers that are supported by Linux and Windows 10 IoT Core.
 
 ### Iot.Device.Bindings
 
-The [.NET Core IoT Repository](https://github.com/dotnet/iot/tree/master/src) contains [IoT.Device.Bindings](https://www.nuget.org/packages/Iot.Device.Bindings), a growing set of community-maintained device bindings for IoT components that you can use with your .NET Core applications. Porting your own C/C++ driver libraries to .NET Core and C# is pretty straight forward too.
+The [.NET Core IoT Repository](https://github.com/dotnet/iot/tree/master/src) contains [IoT.Device.Bindings](https://www.nuget.org/packages/Iot.Device.Bindings), a growing set of community-maintained device bindings for IoT components that you can use with your .NET Core applications. If you can't find what you need then porting your own C/C++ driver libraries to .NET Core and C# is pretty straight forward too.
 
 ## Software Set Up for Linux, macOS, and Windows 10 Desktops
 
@@ -47,7 +47,7 @@ You can create .NET Core IoT projects on Linux, macOS and Windows desktops.  You
 2. [PuTTY SSH and telnet client](https://www.putty.org/)
 3. The [WSL workspaceFolder](https://marketplace.visualstudio.com/itemdetails?itemName=lfurzewaddock.vscode-wsl-workspacefolder) Visual Studio Extension
 
-## Configure Connection to Raspberry Pi
+## Configure Connection to your Raspberry Pi
 
 The following creates a new SSH key, copies the public key to the Raspberry Pi, and then installs the Visual Studio Debugger on the Raspberry Pi. Take the default options.
 
@@ -76,9 +76,9 @@ bash -c "ssh-keygen -t rsa && ssh-copy-id pi@xxx.xxx.xxx.xxx" && ^
 plink -ssh -pw raspberry pi@raspberrypi.local "curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -r linux-arm -v latest -l ~/vsdbg"
 ```
 
-## Creating Your First .NET Core IoT Project
+## Creating your first .NET Core IoT project
 
-Open a command prompt or terminal window, and paste in the following command(s). It will create the project directory, create the .NET Core Console app, add the Iot.Device.Bindings Nuget package, and then launch Visual Studio Code.
+Open a command prompt or terminal window, and paste in the following command(s). It will create the project directory, create the .NET Core Console app, add the Iot.Device.Bindings package, and then launch Visual Studio Code.
 
 ```bash
 mkdir dotnet.core.iot.csharp && cd dotnet.core.iot.csharp && dotnet new console --langVersion latest && dotnet add package Iot.Device.Bindings --version 0.1.0-prerelease* && code .
@@ -121,7 +121,7 @@ Your Visual Studio Code **Program.cs** file should look like the following scree
 
 ## Deploying the project to your Raspberry Pi
 
-To deploy a project to your Raspberry Pi you need to tell Visual Studio Code to compile for **linux-arm**, how to copy the compiled code to the Raspberry Pi, and finally how to attach the debugger.
+To deploy a project to your Raspberry Pi you need to configure Visual Studio Code to compile for **linux-arm**, how to copy the compiled code to the Raspberry Pi, and finally how to attach the debugger.
 
 For this walk-through, we are going to use [rsync](https://en.wikipedia.org/wiki/Rsync) to copy program files to the Raspberry Pi. Rsync is a very efficient file transfer protocol, comes standard with Linux, macOS, and Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=devto-blog-dglover) installed.
 
@@ -132,7 +132,7 @@ We need to update the [launch.json](https://code.visualstudio.com/docs/editor/de
 Notes:
 
 1. These launch and build tasks assume the default network name of your Raspberry Pi is **raspberrypi.local**
-2. The Windows section uses plink for the pipeProgram. It specifies the default Raspberry Pi password which is 'raspberry'.
+2. The Windows section uses plink for the pipeProgram. It specifies the default Raspberry Pi password which is '**raspberry**'.
 2. These definitions support building the application from Linux, macOS and Windows desktops.
 
 ### launch.json
@@ -190,9 +190,9 @@ The launch.json file calls a **publish** prelaunch task which builds and copies 
 }
 ```
 
-### task.json
+### tasks.json
 
-The task.json file defines how to compile the project for linux-arm and how to copy the program to the Raspberry Pi with rsync.
+The tasks.json file defines how to compile the project for linux-arm and how to copy the program to the Raspberry Pi with rsync.
 
 Notes.
 
@@ -264,7 +264,7 @@ Your code will build, it will be copied to your Raspberry Pi and the debugger wi
 
 1. Follow the "[Create an Azure IoT Hub (Free)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet?WT.mc_id=devto-blog-dglover)" tutorial until the "Send simulated telemetry" section. You will need to the connection string of the device you created.
 
-2. Add Nuget Package references for Azure IoT Hub and JSON.NET. This can either be done by executing the 'dotnet add package' command, or by updating the references directly in the .csproj file.
+2. Add the Package references for Azure IoT Hub and JSON.NET. This can either be done by executing the 'dotnet add package' command, or by updating the references directly in the .csproj file.
 
 Open the dotnet.core.iot.csharp.csproj file and update the <ItemGroup> section as follows.
 
@@ -293,12 +293,12 @@ namespace dotnet.core.iot
 {
     class Program
     {
-        const string _deviceConnectionString = "<Replace with your Azure IoT Hub Connection String>";
-        const string _deviceId = "<Your Device Id>";
-        static DeviceClient _deviceClient = DeviceClient.CreateFromConnectionString(_deviceConnectionString, TransportType.Mqtt);
+        const string DeviceConnectionString = "<Your Azure IoT Hub Connection String>";
 
+        // Replace with the device id you used when you created the device in Azure IoT Hub
+        const string DeviceId = "<Your Device Id>";
+        static DeviceClient _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
         static CpuTemperature _temperature = new CpuTemperature();
-
         static int _msgId = 0;
         const double TemperatureThreshold = 42.0;
 
@@ -329,14 +329,14 @@ namespace dotnet.core.iot
 
         class Telemetry
         {
-            [JsonPropertyAttribute(PropertyName = "temperature")]
+            [JsonPropertyAttribute (PropertyName="temperature")] 
             public double Temperature { get; set; } = 0;
 
-            [JsonPropertyAttribute(PropertyName = "messageId")]
+            [JsonPropertyAttribute (PropertyName="messageId")] 
             public int MessageId { get; set; } = 0;
 
-            [JsonPropertyAttribute(PropertyName = "deviceId")]
-            public string DeviceId { get; set; } = _deviceId;
+            [JsonPropertyAttribute (PropertyName="deviceId")] 
+            public string DeviceId {get; set;} = Program.DeviceId;
         }
     }
 }

@@ -10,11 +10,11 @@ namespace dotnet.core.iot
 {
     class Program
     {
-        const string _deviceConnectionString = "<Your Azure IoT Hub Connection String>";
+        const string DeviceConnectionString = "<Your Azure IoT Hub Connection String>";
 
         // Replace with the device id you used when you created the device in Azure IoT Hub
-        const string _deviceId = "<Your Device Id>";
-        static DeviceClient _deviceClient = DeviceClient.CreateFromConnectionString(_deviceConnectionString, TransportType.Mqtt);
+        const string DeviceId = "<Your Device Id>";
+        static DeviceClient _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
         static CpuTemperature _temperature = new CpuTemperature();
         static int _msgId = 0;
         const double TemperatureThreshold = 42.0;
@@ -53,7 +53,7 @@ namespace dotnet.core.iot
             public int MessageId { get; set; } = 0;
 
             [JsonPropertyAttribute (PropertyName="deviceId")] 
-            public string DeviceId {get; set;} = _deviceId;
+            public string DeviceId {get; set;} = Program.DeviceId;
         }
     }
 }
