@@ -260,8 +260,6 @@ Your code will build, it will be copied to your Raspberry Pi and the debugger wi
 
 ![Publish, Launch and Attach Debugger](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/build-deploy-debug.png)
 
-![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/visual-studio-code-debugging.png)
-
 ## Connect your Raspberry Pi to Azure IoT Hub
 
 1. Follow the "[Create an Azure IoT Hub (Free)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet?WT.mc_id=devto-blog-dglover)" tutorial until the "Send simulated telemetry" section. You will need to the connection string of the device you created.
