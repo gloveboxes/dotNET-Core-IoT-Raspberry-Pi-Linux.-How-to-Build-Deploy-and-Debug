@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "publish",
+            "linux": {
+                "command": "sh",
+                "type": "shell",
+                "args": [
+                    "-c",
+                    "\"dotnet publish -r linux-arm -o bin/linux-arm/publish",
+                    "${workspaceFolder}/${workspaceFolderBasename}.csproj\"",
+                    ";",
+                    "sh",
+                   "-c",
+                    "\"rsync -rvuz ${workspaceFolder}/bin/linux-arm/publish/ pi@raspberrypi.local:~/${workspaceFolderBasename}\""
+                ],
+            },
+            "osx": {
+                "command": "sh",
+                "type": "shell",
+                "args": [
+                    "-c",
+                    "\"dotnet publish -r linux-arm -o bin/linux-arm/publish",
+                    "${workspaceFolder}/${workspaceFolderBasename}.csproj\"",
+                    ";",
+                    "sh",
+                    "-c",
+                    "\"rsync -rvuz ${workspaceFolder}/bin/linux-arm/publish/ pi@raspberrypi.local:~/${workspaceFolderBasename}\""
+                ],
+            },
+            "windows": {
+                "command": "cmd",
+                "type": "shell",
+                "args": [
+                    "/c",
+                    "\"dotnet publish -r linux-arm -o bin/linux-arm/publish",
+                    "${workspaceFolder}/${workspaceFolderBasename}.csproj\"",
+                    "&&",
+                    "bash",
+                    "-c",
+                    "\"rsync -rvuz ${command:extension.vscode-wsl-workspaceFolder}/bin/linux-arm/publish/ pi@<YOUR RASPBERRY PI ADDRESS>:~/${workspaceFolderBasename}\""
+                ],
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
