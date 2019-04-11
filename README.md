@@ -88,7 +88,7 @@ mkdir dotnet.core.iot.csharp && cd dotnet.core.iot.csharp && dotnet new console 
 
 ![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/create-new-project.png)
 
-5. Replace the code in Program.cs file with the following code. This code will read the Raspberry Pi CPU Temperature and display it in the system console window.
+5. Replace the code in program.cs file with the following code. This code will read the Raspberry Pi CPU Temperature and display it in the system console window.
 
 ```c#
 using System;
@@ -115,7 +115,7 @@ namespace dotnet.core.iot
 }
 ```
 
-Your Visual Studio Code **Program.cs** file should look like the following screenshot.
+Your Visual Studio Code **program.cs** file should look like the following screenshot.
 
 ![sample program](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/cpu-temperature-program.png)
 
@@ -276,7 +276,7 @@ Open the dotnet.core.iot.csharp.csproj file and update the <ItemGroup> section a
 </ItemGroup>
 ```
 
-3. Replace the code in Program.cs file with the following code and add your device connection string.
+3. Replace the code in program.cs file with the following code and add your device connection string.
 
 This code will read the Raspberry Pi CPU Temperature, display it, then send the telemetry to Azure IoT Hub.
 
