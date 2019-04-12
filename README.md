@@ -2,7 +2,7 @@
 
 ![.net core loves single board computers](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/banner.png)
 
-![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
+![twitter logo](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
 
 ## Source Code
 
