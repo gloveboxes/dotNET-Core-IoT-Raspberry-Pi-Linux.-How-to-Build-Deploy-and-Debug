@@ -1,8 +1,8 @@
-# .NET Core IoT, Raspberry Pi Linux, and Azure IoT Hub. Learn how to Build, Deploy and Debug.
+# .NET Core IoT, Raspberry Pi Linux, and Azure IoT Hub. Learn how to Build, Deploy and Debug
 
-![.net core loves single board computers](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/banner.png)
+![.net core loves single board computers](./docs/banner.png)
 
-![twitter logo](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
+![twitter logo](./docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
 
 ## Source Code
 
@@ -15,14 +15,14 @@ The .NET Core IoT Library connects your applications to hardware. In this walk-t
 1. Develop a C# .NET Core IoT application from a Linux, macOS or Windows 10 desktop,
 2. Deploy the app to a Raspberry Pi running Linux (or another Linux board such as the BeagleBone Black),
 3. Debug and step through your code,
-4. Stream telemetry to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub?WT.mc_id=devto-blog-dglover),
+4. Stream telemetry to [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/about-iot-hub?WT.mc_id=hackster-blog-dglover),
 5. And if you are a glutton for punishment then check out the [F# .Net Core IoT] in the [samples](https://github.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug) folder.
 
 ## Why .NET Core
 
 It used by millions of developers, it is mature, fast, supports multiple programming languages (C#, F#, and VB.NET), runs on multiple platforms (Linux, macOS, and Windows), and is supported across multiple processor architectures. It is used to build device, cloud, and IoT applications.
 
-[.NET Core](https://docs.microsoft.com/en-au/dotnet/core?WT.mc_id=devto-blog-dglover) is an [open-source](https://github.com/dotnet/coreclr/blob/master/LICENSE.TXT), general-purpose development platform maintained by Microsoft and the .NET community on [GitHub](https://github.com/dotnet/core).
+[.NET Core](https://docs.microsoft.com/en-au/dotnet/core?WT.mc_id=hackster-blog-dglover) is an [open-source](https://github.com/dotnet/coreclr/blob/master/LICENSE.TXT), general-purpose development platform maintained by Microsoft and the .NET community on [GitHub](https://github.com/dotnet/core).
 
 ## The .NET Core IoT Libraries Open Source Project
 
@@ -38,7 +38,7 @@ The [.NET Core IoT Repository](https://github.com/dotnet/iot/tree/master/src) co
 
 The drivers in the repository include sample code along with wiring diagrams. For example the [BMx280 - Digital Pressure Sensors BMP280/BME280](https://github.com/dotnet/iot/tree/master/src/devices/Bmx280).
 
-![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/rpi-bmp280_i2c.png)
+![](./docs/rpi-bmp280_i2c.png)
 
 ## Software Set Up for Linux, macOS, and Windows 10 Desktops
 
@@ -49,7 +49,7 @@ You can create .NET Core IoT projects on Linux, macOS and Windows desktops.  You
 
 ### Additional Windows 10 Software Requirements
 
-1. [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=devto-blog-dglover). I suggest you install the Ubuntu 18.04 distribution.
+1. [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=hackster-blog-dglover). I suggest you install the Ubuntu 18.04 distribution.
 2. [PuTTY SSH and telnet client](https://www.putty.org/)
 3. The [WSL workspaceFolder](https://marketplace.visualstudio.com/itemdetails?itemName=lfurzewaddock.vscode-wsl-workspacefolder) Visual Studio Extension
 
@@ -61,7 +61,7 @@ If you've not set up a Raspberry Pi before then this is a great guide. "[HEADLES
 
 **This walk-through assumes the default Raspberry Pi network name, 'raspberrypi.local', and the default password, 'raspberry'.**
 
-![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/raspberrypi-3a-plus.jpg)
+![](./docs/raspberrypi-3a-plus.jpg)
 
 ## Configure Connection to your Raspberry Pi
 
@@ -79,7 +79,7 @@ ssh pi@raspberry.local "curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -r
 ### From Windows 10
 
 Press the Windows Key
-![windows key](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
+![windows key](./docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
 
 ```bash
 ping raspberrypi.local
@@ -106,7 +106,7 @@ code .
 
 1. Add the Visual Studio Code Build and Debug assets
 
-![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/create-new-project.png)
+![](./docs/create-new-project.png)
 
 2. Replace the code in program.cs file with the following code. This code will read the Raspberry Pi CPU Temperature and display it in the system console window.
 
@@ -137,19 +137,19 @@ namespace dotnet.core.iot
 
 Your Visual Studio Code **program.cs** file should look like the following screenshot.
 
-![sample program](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/cpu-temperature-program.png)
+![sample program](./docs/cpu-temperature-program.png)
 
 ## Deploying the project to your Raspberry Pi
 
 To deploy a project to your Raspberry Pi you need to configure Visual Studio Code to compile for **linux-arm**, how to copy the compiled code to the Raspberry Pi, and finally how to attach the debugger.
 
-For this walk-through, we are going to use [rsync](https://en.wikipedia.org/wiki/Rsync) to copy program files to the Raspberry Pi. Rsync is a very efficient file transfer protocol, comes standard with Linux, macOS, and Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=devto-blog-dglover) installed.
+For this walk-through, we are going to use [rsync](https://en.wikipedia.org/wiki/Rsync) to copy program files to the Raspberry Pi. Rsync is a very efficient file transfer protocol, comes standard with Linux, macOS, and Windows with the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=hackster-blog-dglover) installed.
 
 ## Updating the Visual Studio Code Build Files
 
 We need to update the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/debugging) files with the following code.
 
-![](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/build-configuration.png)
+![](./docs/build-configuration.png)
 
 **This walk-through assumes the default Raspberry Pi network name, 'raspberrypi.local', and the default password, 'raspberry'.**
 
@@ -272,11 +272,11 @@ Set a breakpoint in your code, for example at the 15, and from Visual Studio Cod
 
 Your code will build, it will be copied to your Raspberry Pi and the debugger will be attached and you can now start stepping through your code.
 
-![Publish, Launch and Attach Debugger](https://raw.githubusercontent.com/gloveboxes/dotNET-Core-IoT-Raspberry-Pi-Linux.-How-to-Build-Deploy-and-Debug/master/docs/build-deploy-debug.png)
+![Publish, Launch and Attach Debugger](./docs/build-deploy-debug.png)
 
 ## Connect your Raspberry Pi to Azure IoT Hub
 
-1. Follow the "[Create an Azure IoT Hub (Free)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet?WT.mc_id=devto-blog-dglover)" tutorial until the "Send simulated telemetry" section. You will need to the connection string of the device you created.
+1. Follow the "[Create an Azure IoT Hub (Free)](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet?WT.mc_id=hackster-blog-dglover)" tutorial until the "Send simulated telemetry" section. You will need to the connection string of the device you created.
 
 2. Add the Package references for Azure IoT Hub and JSON.NET. This can either be done by executing the 'dotnet add package' command, or by updating the references directly in the .csproj file.
 
@@ -370,4 +370,4 @@ Press F5 to run the current 'Publish, Launch, and Attach Debugger' build task.
 
 [Remote Debugging On Linux Arm](https://github.com/OmniSharp/omnisharp-vscode/wiki/Remote-Debugging-On-Linux-Arm)
 
-[Azure IoT libraries for .NET](https://docs.microsoft.com/en-au/dotnet/api/overview/azure/iot?view=azure-dotnet&WT.mc_id=devto-blog-dglover)
+[Azure IoT libraries for .NET](https://docs.microsoft.com/en-au/dotnet/api/overview/azure/iot?view=azure-dotnet&WT.mc_id=hackster-blog-dglover)
