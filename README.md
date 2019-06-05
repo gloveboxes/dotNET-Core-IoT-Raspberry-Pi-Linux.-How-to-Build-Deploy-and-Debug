@@ -374,9 +374,18 @@ Press F5 to run the current 'Publish, Launch, and Attach Debugger' build task.
 
 ## Quick Notes
 
-Using the new built in Windows OpenSSH client
+Using the new built in Windows OpenSSH client. Windows 10 1809+
 
-From PowerShell
+Install OpenSSH Client on Windows
+
+From PowerShell as Administrator
+
+```bash
+Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Client*'
+```
+
+Close PowerShell and reopen as **non administrator** user.
+
 
 ```bash
 ssh-keygen -t rsa ; `
@@ -386,4 +395,4 @@ cat ~/.ssh/id_rsa.pub | ssh user@123.45.56.78 "mkdir ~/.ssh; cat >> ~/.ssh/autho
 References
 
 - [Is there an equivalent to ssh-copy-id for Windows?](https://serverfault.com/questions/224810/is-there-an-equivalent-to-ssh-copy-id-for-windows)
-- [How to Enable and Use Windows 10’s New Built-in SSH Commands](https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/)
+- [Installation of OpenSSH For Windows Server 2019 and Windows 10](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse)
