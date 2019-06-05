@@ -376,12 +376,12 @@ Press F5 to run the current 'Publish, Launch, and Attach Debugger' build task.
 
 Using the new built in Windows OpenSSH client. Windows 10 1809+
 
-Install OpenSSH Client on Windows
+Install OpenSSH Client on Windows (one time only operation).
 
 From PowerShell as Administrator
 
 ```bash
-Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Client*'
+Add-WindowsCapability -Online -Name OpenSSH.Client
 ```
 
 Close PowerShell and reopen as **non administrator** user.
@@ -395,4 +395,4 @@ cat ~/.ssh/id_rsa.pub | ssh user@123.45.56.78 "mkdir ~/.ssh; cat >> ~/.ssh/autho
 References
 
 - [Is there an equivalent to ssh-copy-id for Windows?](https://serverfault.com/questions/224810/is-there-an-equivalent-to-ssh-copy-id-for-windows)
-- [Installation of OpenSSH For Windows Server 2019 and Windows 10](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse)
+- [Installation of OpenSSH For Windows Server 2019 and Windows 10](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?WT.mc_id=github-blog-dglover)
