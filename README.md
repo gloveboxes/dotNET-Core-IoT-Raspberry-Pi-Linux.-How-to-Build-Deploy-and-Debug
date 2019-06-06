@@ -185,7 +185,7 @@ The launch.json file calls a **publish** prelaunch task which builds and copies 
                     "pipeCwd": "${workspaceRoot}",
                     "pipeProgram": "/usr/bin/ssh",
                     "pipeArgs": [
-                        "pi@rpirover.local"
+                        "pi@raspberrypi.local"
                     ],
                     "debuggerPath": "~/vsdbg/vsdbg"
                 }
