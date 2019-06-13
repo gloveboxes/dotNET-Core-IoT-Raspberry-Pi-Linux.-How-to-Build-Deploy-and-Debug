@@ -7,11 +7,11 @@ open System.Threading
 [<EntryPoint>]
 let main argv =
 
-    let cpuTemperature = new CpuTemperature()
+    let cpuTemperature = CpuTemperature()
 
     while true do
         if cpuTemperature.IsAvailable then
-            printfn "%.2f" cpuTemperature.Temperature.Celsius
+            printfn "%A" cpuTemperature.Temperature.Celsius
     
         Thread.Sleep(2000)
 

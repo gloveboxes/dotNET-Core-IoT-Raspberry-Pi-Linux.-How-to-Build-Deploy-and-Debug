@@ -44,8 +44,8 @@ The drivers in the repository include sample code along with wiring diagrams. Fo
 
 You can create .NET Core IoT projects on Linux, macOS and Windows desktops.  You need to install the following software.
 
-1. [.NET Core](https://dotnet.microsoft.com/download)
-2. [Visual Studio Code](https://code.visualstudio.com/)
+1. [.NET Core](https://dotnet.microsoft.com/download?WT.mc_id=github-blog-dglover)
+2. [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=github-blog-dglover)
 
 ### Additional Windows 10 Software Requirements
 
@@ -99,7 +99,7 @@ Open a command prompt or terminal window, and paste in the following command(s).
 ```bash
 mkdir dotnet.core.iot.csharp && cd dotnet.core.iot.csharp
 
-dotnet new console --langVersion latest && dotnet add package Iot.Device.Bindings --version 0.1.0-prerelease*
+dotnet new console --langVersion=latest && dotnet add package Iot.Device.Bindings --version 0.1.0-prerelease*
 
 code .
 ```
@@ -162,33 +162,24 @@ The launch.json file calls a **publish** prelaunch task which builds and copies 
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Publish, Launch, and Attach Debugger",
+            "name": "Raspberry Pi Publish, Launch, and Attach Debugger",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "publish",
+            "preLaunchTask": "RaspberryPublish",
             "program": "~/${workspaceFolderBasename}/${workspaceFolderBasename}",
             "cwd": "~/${workspaceFolderBasename}",
             "stopAtEntry": false,
             "console": "internalConsole",
-            "linux": {
-                "pipeTransport": {
-                    "pipeCwd": "${workspaceRoot}",
-                    "pipeProgram": "/usr/bin/ssh",
-                    "pipeArgs": [
-                        "pi@raspberrypi.local"
-                    ],
-                    "debuggerPath": "~/vsdbg/vsdbg"
-                }
-            },
-            "osx": {
-                "pipeTransport": {
-                    "pipeCwd": "${workspaceRoot}",
-                    "pipeProgram": "/usr/bin/ssh",
-                    "pipeArgs": [
-                        "pi@raspberrypi.local"
-                    ],
-                    "debuggerPath": "~/vsdbg/vsdbg"
-                }
+            "args": [
+                "https://your-dmx-function.azurewebsites.net/api"
+            ],
+            "pipeTransport": {
+                "pipeCwd": "${workspaceRoot}",
+                "pipeProgram": "/usr/bin/ssh",
+                "pipeArgs": [
+                    "pi@raspberrypi.local"
+                ],
+                "debuggerPath": "~/vsdbg/vsdbg"
             },
             "windows": {
                 "pipeTransport": {
@@ -212,53 +203,36 @@ The launch.json file calls a **publish** prelaunch task which builds and copies 
 
 The tasks.json file defines how to compile the project for linux-arm and how to copy the program to the Raspberry Pi with rsync. On **Windows**, you must explicitly specify the **IP Address** of the Raspberry Pi as rsync is called via Bash and the Windows Subsystem for Linux does not resolve .local DNS names.
 
-
 ```json
 {
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "publish",
-            "linux": {
-                "command": "sh",
-                "type": "shell",
-                "args": [
-                    "-c",
-                    "\"dotnet publish -r linux-arm -o bin/linux-arm/publish",
-                    "${workspaceFolder}/${workspaceFolderBasename}.csproj\"",
-                    ";",
-                    "sh",
-                   "-c",
-                    "\"rsync -rvuz ${workspaceFolder}/bin/linux-arm/publish/ pi@raspberrypi.local:~/${workspaceFolderBasename}\""
-                ],
-            },
-            "osx": {
-                "command": "sh",
-                "type": "shell",
-                "args": [
-                    "-c",
-                    "\"dotnet publish -r linux-arm -o bin/linux-arm/publish",
-                    "${workspaceFolder}/${workspaceFolderBasename}.csproj\"",
-                    ";",
-                    "sh",
-                    "-c",
-                    "\"rsync -rvuz ${workspaceFolder}/bin/linux-arm/publish/ pi@raspberrypi.local:~/${workspaceFolderBasename}\""
-                ],
-            },
+            "label": "RaspberryPublish",
+            "command": "sh",
+            "type": "shell",
+            "problemMatcher": "$msCompile",
+            "args": [
+                "-c",
+                "\"dotnet publish -r linux-arm -o bin/linux-arm/publish",
+                "${workspaceFolder}/${workspaceFolderBasename}.csproj\"",
+                ";",
+                "sh",
+                "-c",
+                "\"rsync -rvuz ${workspaceFolder}/bin/linux-arm/publish/ pi@raspberrypi.local:~/${workspaceFolderBasename}\""
+            ],
             "windows": {
                 "command": "cmd",
-                "type": "shell",
                 "args": [
                     "/c",
-                    "\"dotnet publish -r linux-arm -o bin/linux-arm/publish",
-                    "${workspaceFolder}/${workspaceFolderBasename}.csproj\"",
+                    "\"dotnet publish -r linux-arm -o bin\\linux-arm\\publish",
+                    "${workspaceFolder}\\${workspaceFolderBasename}.csproj\"",
                     "&&",
                     "bash",
                     "-c",
-                    "\"rsync -rvuz ${command:extension.vscode-wsl-workspaceFolder}/bin/linux-arm/publish/ pi@<YOUR RASPBERRY PI ADDRESS>:~/${workspaceFolderBasename}\""
-                ],
-            },
-            "problemMatcher": "$msCompile"
+                    "\"rsync -rvuz $(wslpath '${workspaceFolder}')/bin/linux-arm/publish/ pi@raspberrypi.local:~/${workspaceFolderBasename}\""
+                ]
+            }
         }
     ]
 }
