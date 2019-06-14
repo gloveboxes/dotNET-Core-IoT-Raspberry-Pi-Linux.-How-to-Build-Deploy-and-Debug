@@ -1,8 +1,8 @@
 # .NET Core IoT, Raspberry Pi Linux, and Azure IoT Hub. Learn how to Build, Deploy and Debug
 
-![.net core loves single board computers](docs/banner.png)
+![.net core loves single board computers](/docs/banner.png)
 
-![twitter logo](docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
+![twitter logo](/docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
 
 ## Source Code
 
