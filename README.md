@@ -79,7 +79,7 @@ ssh pi@raspberry.local "curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -r
 ### From Windows 10
 
 Press the Windows Key
-![windows key](docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
+![windows key](/docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
 
 ```bash
 ping raspberrypi.local
@@ -137,7 +137,7 @@ namespace dotnet.core.iot
 
 Your Visual Studio Code **program.cs** file should look like the following screenshot.
 
-![sample program](docs/cpu-temperature-program.png)
+![sample program](/docs/cpu-temperature-program.png)
 
 ## Deploying the project to your Raspberry Pi
 
