@@ -1,8 +1,8 @@
 # .NET Core IoT, Raspberry Pi Linux, and Azure IoT Hub. Learn how to Build, Deploy and Debug
 
-![.net core loves single board computers](/docs/banner.png)
+![.net core loves single board computers](docs/banner.png)
 
-![twitter logo](/docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
+![twitter logo](docs/twitter-logo.png) Follow me on [Twitter](https://twitter.com/dglover).
 
 ## Source Code
 
@@ -38,7 +38,7 @@ The [.NET Core IoT Repository](https://github.com/dotnet/iot/tree/master/src) co
 
 The drivers in the repository include sample code along with wiring diagrams. For example the [BMx280 - Digital Pressure Sensors BMP280/BME280](https://github.com/dotnet/iot/tree/master/src/devices/Bmx280).
 
-![](/docs/rpi-bmp280_i2c.png)
+![](docs/rpi-bmp280_i2c.png)
 
 ## Software Set Up for Linux, macOS, and Windows 10 Desktops
 
@@ -61,7 +61,7 @@ If you've not set up a Raspberry Pi before then this is a great guide. "[HEADLES
 
 **This walk-through assumes the default Raspberry Pi network name, 'raspberrypi.local', and the default password, 'raspberry'.**
 
-![](/docs/raspberrypi-3a-plus.jpg)
+![](docs/raspberrypi-3a-plus.jpg)
 
 ## Configure Connection to your Raspberry Pi
 
@@ -79,7 +79,7 @@ ssh pi@raspberry.local "curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -r
 ### From Windows 10
 
 Press the Windows Key
-![windows key](/docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
+![windows key](docs/windows-key-small.png), type 'cmd', then press the Enter key to open the Windows command prompt. Then copy and paste the following commands.
 
 ```bash
 ping raspberrypi.local
@@ -106,7 +106,7 @@ code .
 
 1. Add the Visual Studio Code Build and Debug assets
 
-![](/docs/create-new-project.png)
+![](docs/create-new-project.png)
 
 2. Replace the code in program.cs file with the following code. This code will read the Raspberry Pi CPU Temperature and display it in the system console window.
 
@@ -137,7 +137,7 @@ namespace dotnet.core.iot
 
 Your Visual Studio Code **program.cs** file should look like the following screenshot.
 
-![sample program](/docs/cpu-temperature-program.png)
+![sample program](docs/cpu-temperature-program.png)
 
 ## Deploying the project to your Raspberry Pi
 
@@ -149,7 +149,7 @@ For this walk-through, we are going to use [rsync](https://en.wikipedia.org/wiki
 
 We need to update the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/debugging) files with the following code.
 
-![](/docs/build-configuration.png)
+![](docs/build-configuration.png)
 
 **This walk-through assumes the default Raspberry Pi network name, 'raspberrypi.local', and the default password, 'raspberry'.**
 
@@ -246,7 +246,7 @@ Set a breakpoint in your code, for example at the 15, and from Visual Studio Cod
 
 Your code will build, it will be copied to your Raspberry Pi and the debugger will be attached and you can now start stepping through your code.
 
-![Publish, Launch and Attach Debugger](/docs/build-deploy-debug.png)
+![Publish, Launch and Attach Debugger](docs/build-deploy-debug.png)
 
 ## Connect your Raspberry Pi to Azure IoT Hub
 
