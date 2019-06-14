@@ -246,7 +246,7 @@ Set a breakpoint in your code, for example at the 15, and from Visual Studio Cod
 
 Your code will build, it will be copied to your Raspberry Pi and the debugger will be attached and you can now start stepping through your code.
 
-![Publish, Launch and Attach Debugger](docs/build-deploy-debug.png)
+![Publish, Launch and Attach Debugger](/docs/build-deploy-debug.png)
 
 ## Connect your Raspberry Pi to Azure IoT Hub
 
