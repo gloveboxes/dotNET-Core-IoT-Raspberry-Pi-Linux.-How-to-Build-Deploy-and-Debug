@@ -51,7 +51,7 @@ You can create .NET Core IoT projects on Linux, macOS and Windows desktops.  You
 
 1. [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10?WT.mc_id=github-blog-dglover). I suggest you install the Ubuntu 18.04 distribution.
 2. [PuTTY SSH and telnet client](https://www.putty.org/)
-3. The [WSL workspaceFolder](https://marketplace.visualstudio.com/itemdetails?itemName=lfurzewaddock.vscode-wsl-workspacefolder) Visual Studio Extension
+3. The [WSL workspaceFolder](https://marketplace.visualstudio.com/itemdetails?itemName=lfurzewaddock.vscode-wsl-workspacefolder&WT.mc_id=github-blog-dglover) Visual Studio Extension
 
 ## Setting up your Raspberry Pi
 
@@ -147,7 +147,7 @@ For this walk-through, we are going to use [rsync](https://en.wikipedia.org/wiki
 
 ## Updating the Visual Studio Code Build Files
 
-We need to update the [launch.json](https://code.visualstudio.com/docs/editor/debugging) and [tasks.json](https://code.visualstudio.com/docs/editor/debugging) files with the following code.
+We need to update the [launch.json](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=github-blog-dglover) and [tasks.json](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=github-blog-dglover) files with the following code.
 
 ![](docs/build-configuration.png)
 
@@ -240,7 +240,7 @@ The tasks.json file defines how to compile the project for linux-arm and how to 
 
 ## Build, Deploy and Debug your .NET Core IoT App
 
-Review this [Visual Studio Debugger Guide](https://code.visualstudio.com/docs/editor/debugging) if you've not used the debugger before.
+Review this [Visual Studio Debugger Guide](https://code.visualstudio.com/docs/editor/debugging?WT.mc_id=github-blog-dglover) if you've not used the debugger before.
 
 Set a breakpoint in your code, for example at the 15, and from Visual Studio Code click the Debug icon on the Activity bar, ensure "**Publish, Launch and Attach Debugger**" is selected in the dropdown, and click the green run icon.
 
@@ -336,7 +336,7 @@ Press F5 to run the current 'Publish, Launch, and Attach Debugger' build task.
 
 ## Monitor the Azure IoT Hub Telemetry
 
-1. Install the [Visual Studio IoT Hub Toolkit](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-toolkit).
+1. Install the [Visual Studio IoT Hub Toolkit](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-toolkit&WT.mc_id=github-blog-dglover).
 
 2. Review the [Visual Studio IoT Hub Toolkit](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki)] Wiki for information on using the IoT Hub Toolkit Visual Studio Extension.
 
