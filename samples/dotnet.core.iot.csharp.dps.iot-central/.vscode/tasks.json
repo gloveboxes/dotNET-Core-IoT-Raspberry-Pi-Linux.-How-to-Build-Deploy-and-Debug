@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "RaspberryPublish",
-            "command": "bash",
+            "command": "sh",
             "type": "shell",
             "problemMatcher": "$msCompile",
             "args": [

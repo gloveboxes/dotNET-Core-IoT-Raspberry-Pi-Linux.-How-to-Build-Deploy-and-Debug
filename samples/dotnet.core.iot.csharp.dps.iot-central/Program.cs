@@ -50,10 +50,17 @@ namespace dotnet.core.iot
                     {
                         if (_temperature.IsAvailable)
                         {
-                            Console.WriteLine($"The CPU temperature is {Math.Round(_temperature.Temperature.Celsius, 2)}");
-                            await SendMsgIotHub(iotClient, _temperature.Temperature.Celsius);
+                            try
+                            {
+                                Console.WriteLine($"The CPU temperature is {Math.Round(_temperature.Temperature.Celsius, 2)}");
+                                await SendMsgIotHub(iotClient, _temperature.Temperature.Celsius);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("exception msg: " + ex.Message);
+                            }
                         }
-                        Thread.Sleep(2000); // sleep for 2 seconds
+                        Thread.Sleep(10000); // sleep for 10 seconds
                     }
                 }
             }
